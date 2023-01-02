@@ -16,33 +16,35 @@ const initdb = async () =>
 export const putDb = async (content) => {
   console.log('PUT to database');
   //creating connection to DB
-  const jateDb = await openDB('jate', 1)
+  const jateDb = await openDB('jate', 1);
   //creating transaction
   const tx = jateDb.transaction('jate', 'readwrite');
   // desired object store
   const store = tx.objectStore('jate');
   //request handling
-  const request = store.put({id: 1, value: content})
+  const request = store.put({ id: 1, value: content });
   //result await
-  const result = await request
-  console.log(`Database updated with ${result.value}`)
-  console.error('putDb not implemented');
-}
+  const result = await request;
+  result ? 
+  console.log('Database updated with', result)
+  : console.error('putDb not implemented');
+};
+
 // TODO: Add logic for a method that gets all the content from the database
 export const getDb = async () => {
   console.log('GET all content from database');
   //creating connection to database and version we want to use
   const jateDb = await openDB('jate', 1);
   //creating new transaction and specifying the database/data privileges
-  const tx = jateDb.transaction('jate', 'readonly')
+  const tx = jateDb.transaction('jate', 'readonly');
   //open desired object store
   const store = tx.objectStore('jate');
   //GetAll to get data
-  const request = store.getAll();
+  const request = store.get(1);
   const result = await request;
-  console.log('Get from database returned:', result.value)
-  ? err : console.error('getDb not implemented')
-  return result
+  result ? console.log('Get from database returned:', result.value)
+  : console.error('getDb not stopped working')
+  return result?.value
  
 };
 
