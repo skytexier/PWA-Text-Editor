@@ -19,24 +19,27 @@ module.exports = () => {
     },
     plugins: [
       new HtmlWebpackPlugin({
+        // HTML Generator 
         template: './index.html',
         title: 'JATE Text Editor'
       }),
       new WebpackPwaManifest({
+        // Manifest 
         name: "Just Another Text Editor",
         short_name: "J.A.T.E",
         description: "A text editor and note taker using webpacks",
-        publicPath: '/',
-        start_url: '/',
+        publicPath: './',
+        start_url: './',
         icons: [
           {
-            src: path.resolve('src/images/logo.png'),
+            src: path.resolve('./src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512],
             destination: path.join('assets', 'icons'),
           },
         ]
       }),
       new InjectManifest({
+        // SW Generator from template
         swSrc: './src-sw.js',
         swDest: 'src-sw.js'
       })
@@ -45,10 +48,12 @@ module.exports = () => {
     module: {
       rules: [
         {
+          //CSS Loader
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
       {
+        //Babel Loader
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
@@ -59,7 +64,11 @@ module.exports = () => {
           },
         },
       },
+      {
+        //Image loader
+        test: /\.(png|svg|jpg|jpeg|gif|ico)$/i,
+        type: "asset/resource",
+      },
       ],
     },
-  };
-};
+}};
