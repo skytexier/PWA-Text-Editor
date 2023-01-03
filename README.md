@@ -20,7 +20,7 @@ Most of the issues I ran into were resolved once I realized clearing the page ca
 
 ## Usage
 
-For usage of this application users can write code or just general text into the editor, save their information when navigating away from the page and/or when returing to the page. A user can also "install" the application with the install button which will then pop out the page for use on the side. 
+For usage of this application users can write code or just general text into the editor, save their information when navigating away from the page and/or when returning  to the page. A user can also "install" the application with the install button which will then pop out the page for use on the side. 
 
 ## Installation process
 
@@ -30,6 +30,10 @@ To start the server a user must first install the required dependancies for both
 
 As shown below, this is what the text editor will look like upon load
 ![alt text](./assets/main.png)
+
+If a user would like to 'install' they can press the install button and will receive  a prompt like so
+![alt text](./assets/install.png)
+
 
 
 
@@ -71,7 +75,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
- 
-
